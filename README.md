@@ -47,4 +47,4 @@ If any portions appear similar to external sources, they are functionally generi
 
 - PDF parsing: [pdf-parse](https://www.npmjs.com/package/pdf-parse)
 - AI summarization: [OpenAI API](https://platform.openai.com/)
-- Scripture/legal alignment via LawGPT endpoint
+- Scripture/legal alignment via LawGPT endpoint.
