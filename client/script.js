@@ -193,9 +193,31 @@ exportBtn.onclick = () => {
 
 /********** Ask Law GPT **********/
 // Dashboard functionality
-const statsDisplay = document.getElementById('statsDisplay');
-const categoryFilter = document.getElementById('categoryFilter');
-const misconductFilter = document.getElementById('misconductFilter');
+let statsDisplay = document.getElementById('statsDisplay');
+let categoryFilter = document.getElementById('categoryFilter');
+let misconductFilter = document.getElementById('misconductFilter');
+// Ensure required dashboard elements exist
+if (!statsDisplay) {
+  statsDisplay = document.createElement('div');
+  statsDisplay.id = 'statsDisplay';
+  // Insert before trackerTable if exists, else at body end
+  const trackerTable = document.getElementById('trackerTable');
+  if (trackerTable && trackerTable.parentNode) {
+    trackerTable.parentNode.insertBefore(statsDisplay, trackerTable);
+  } else {
+    document.body.appendChild(statsDisplay);
+  }
+}
+if (!categoryFilter) {
+  categoryFilter = document.createElement('select');
+  categoryFilter.id = 'categoryFilter';
+  statsDisplay.appendChild(categoryFilter);
+}
+if (!misconductFilter) {
+  misconductFilter = document.createElement('select');
+  misconductFilter.id = 'misconductFilter';
+  statsDisplay.appendChild(misconductFilter);
+}
 function updateDashboardStats() {
   const rows = Array.from(trackerBody.querySelectorAll('tr'));
   const totalCases = rows.length;
