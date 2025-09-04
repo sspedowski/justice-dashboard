@@ -9,3 +9,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>
 );
+import { StaffToolbar } from './components/StaffToolbar';
+
+export default function App() {
+  return (
+    <>
+      {/* existing app layout */}
+      <StaffToolbar />
+    </>
+  );
+}
