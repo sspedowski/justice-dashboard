@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justice Dashboard - Help System Demo</title>
+    <link href="/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/custom.css">
+    <link rel="stylesheet" href="/justice-theme.css">
+    <style>
+        /* Ensure help modal styling works */
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body class="p-4 min-h-screen bg-slate-100">
+    <!-- Demo Header with Help Button -->
+    <header class="bg-white shadow-sm border-b rounded-lg mb-6">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-xl font-bold text-gray-900">Justice Dashboard</h1>
+                <!-- Help Button -->
+                <button 
+                    id="helpButton" 
+                    class="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors duration-200 shadow-lg text-sm"
+                    title="Need help? Click for quick guide"
+                >
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm text-gray-600">Welcome, admin</span>
+                <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">admin</span>
+                <button class="text-sm bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700">
+                    Logout
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Demo Dashboard Content -->
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-2xl font-bold mb-4">📋 Justice Dashboard - Help System Demo</h2>
+            <div class="space-y-4">
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-green-800 mb-2">✅ Help System Successfully Implemented!</h3>
+                    <p class="text-green-700">Click the blue help button (❓) in the header above to see the interactive help system in action.</p>
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-blue-800 mb-2">🎯 What's Included</h3>
+                    <ul class="list-disc list-inside space-y-2 text-blue-700">
+                        <li><strong>Comprehensive HELP.md</strong> - Complete documentation guide</li>
+                        <li><strong>Interactive Help Modal</strong> - Quick access help system</li>
+                        <li><strong>User-Friendly Interface</strong> - Professional help button placement</li>
+                        <li><strong>Detailed Instructions</strong> - Step-by-step guides for all features</li>
+                        <li><strong>Troubleshooting Section</strong> - Common issues and solutions</li>
+                        <li><strong>Quick Start Guide</strong> - Get users up and running fast</li>
+                    </ul>
+                </div>
+
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                    <h3 class="text-lg font-semibold text-yellow-800 mb-2">🚀 Key Features</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-medium text-yellow-800">📄 Document Management</h4>
+                            <p class="text-sm text-yellow-700">PDF upload, AI analysis, text extraction</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-yellow-800">📊 Case Tracking</h4>
+                            <p class="text-sm text-yellow-700">Legal case management and organization</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-yellow-800">🤖 AI Integration</h4>
+                            <p class="text-sm text-yellow-700">OpenAI GPT-4 powered document summarization</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-yellow-800">🔐 Security</h4>
+                            <p class="text-sm text-yellow-700">JWT authentication and secure access</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center bg-gray-50 rounded-lg p-4">
+                    <p class="text-gray-600">
+                        <strong>Try it now:</strong> Click the help button above to explore the complete help system!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal (identical to the one in index.html) -->
+    <div id="helpModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg max-w-4xl max-h-[90vh] overflow-auto w-full mx-4">
+                <div class="p-6 border-b flex justify-between items-center bg-blue-600 text-white rounded-t-lg">
+                    <h3 class="text-xl font-bold flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Justice Dashboard Help
+                    </h3>
+                    <button
+                        id="closeHelpModal"
+                        class="text-white hover:text-gray-200 text-2xl font-bold"
+                    >
+                        ✕
+                    </button>
+                </div>
+                <div id="helpContent" class="p-6 space-y-6">
+                    
+                    <!-- Quick Start Section -->
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                        <h4 class="text-lg font-semibold text-green-800 mb-2 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Quick Start Guide
+                        </h4>
+                        <div class="text-green-700">
+                            <p class="mb-2"><strong>New to Justice Dashboard?</strong> Here's how to get started:</p>
+                            <ol class="list-decimal list-inside space-y-1 text-sm">
+                                <li>Use the <strong>"Add Case"</strong> button to manually create a new case</li>
+                                <li>Or drag & drop PDF files to the upload area for automatic processing</li>
+                                <li>Use the search box to filter and find specific cases</li>
+                                <li>Click the export button to download your case data</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Main Features -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-3">📋 Main Features</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h5 class="font-semibold text-blue-700 mb-2">📄 Document Management</h5>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Upload PDF documents (max 10MB)</li>
+                                    <li>• Automatic text extraction</li>
+                                    <li>• AI-powered summarization</li>
+                                    <li>• Document categorization</li>
+                                </ul>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h5 class="font-semibold text-blue-700 mb-2">📊 Case Tracking</h5>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Add and manage legal cases</li>
+                                    <li>• Track case status and progress</li>
+                                    <li>• Filter and search capabilities</li>
+                                    <li>• Export data to CSV</li>
+                                </ul>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h5 class="font-semibold text-blue-700 mb-2">🤖 AI Integration</h5>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• OpenAI GPT-4 document analysis</li>
+                                    <li>• Automatic summary generation</li>
+                                    <li>• Legal document categorization</li>
+                                    <li>• Wolfram Alpha integration</li>
+                                </ul>
+                            </div>
+                            <div class="border border-gray-200 rounded-lg p-4">
+                                <h5 class="font-semibold text-blue-700 mb-2">🔐 Security</h5>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• JWT-based authentication</li>
+                                    <li>• Secure file storage</li>
+                                    <li>• Role-based access control</li>
+                                    <li>• Data encryption</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Common Tasks -->
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 mb-3">⚡ Common Tasks</h4>
+                        <div class="space-y-3">
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                                <h5 class="font-semibold text-blue-800 mb-1">Adding a New Case</h5>
+                                <p class="text-sm text-blue-700">Click "Add Case" → Fill in case details → Click "Add Case" to save</p>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                                <h5 class="font-semibold text-blue-800 mb-1">Uploading Documents</h5>
+                                <p class="text-sm text-blue-700">Drag PDF files to upload area OR click "Upload PDF" → Select files → Wait for AI analysis</p>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                                <h5 class="font-semibold text-blue-800 mb-1">Finding Cases</h5>
+                                <p class="text-sm text-blue-700">Use the search box to filter by case ID, title, or status</p>
+                            </div>
+                            <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                                <h5 class="font-semibold text-blue-800 mb-1">Exporting Data</h5>
+                                <p class="text-sm text-blue-700">Click "Export CSV" to download all case data for backup or analysis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Troubleshooting -->
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                        <h4 class="text-lg font-semibold text-yellow-800 mb-2 flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 15.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                            Need Help? Common Issues
+                        </h4>
+                        <div class="text-yellow-700 text-sm space-y-2">
+                            <p><strong>PDF upload not working?</strong> Check file size (max 10MB) and ensure it's a valid PDF</p>
+                            <p><strong>AI analysis not working?</strong> OpenAI API key may be missing or invalid</p>
+                            <p><strong>Dashboard not loading?</strong> Check browser console (F12) for error messages</p>
+                            <p><strong>Authentication issues?</strong> Clear browser cookies and try logging in again</p>
+                        </div>
+                    </div>
+
+                    <!-- Additional Resources -->
+                    <div class="border-t pt-4">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-2">📚 Additional Resources</h4>
+                        <div class="text-sm text-gray-600 space-y-1">
+                            <p>• Complete documentation: <code>HELP.md</code> and <code>MASTER_DOCUMENTATION.md</code></p>
+                            <p>• Configuration guide: <code>.env.example</code></p>
+                            <p>• Report issues on GitHub</p>
+                            <p>• Default login: admin / justice2025 (change in production!)</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal JavaScript -->
+    <script src="help-demo.js"></script>
+</body>
+</html>
