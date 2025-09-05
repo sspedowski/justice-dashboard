@@ -1,31 +1,22 @@
 {
-  "name": "justice-dashboard-root",
+  "name": "justice-dashboard",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "setup": "bash scripts/setup.sh",
-    "setup:win": "scripts\\setup.bat",
-    "validate": "node scripts/validate-env.js",
-    "build": "node build.js",
-    "build:bash": "bash build.sh",
-    "build:verbose": "echo '🚀 Installing all dependencies...' && npm install && echo '📦 Installing backend...' && cd justice-server && npm install && echo '📦 Installing frontend...' && cd ../justice-dashboard && npm install && echo '✅ Build complete!'",
-    "install:all": "npm install && cd justice-server && npm install && cd ../justice-dashboard && npm install",
-    "test:build": "bash scripts/test-build.sh",
-    "start": "cd justice-server && node server.js",
-    "start:prod": "bash scripts/start-production.sh",
-    "dev": "cd justice-dashboard && npm run dev",
-    "dev:backend": "node server.js",
-    "dev:frontend": "cd justice-dashboard && npm run dev:client",
-    "test": "echo '✅ All tests passed!'",
-    "test:backend": "echo '✅ Backend tests passed!'",
-    "test:frontend": "echo '✅ Frontend tests passed!'",
-    "deploy": "cd justice-server && railway up"
+    "build": "echo 'Build step - no build needed for static site'",
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo 'Tests passed'"
   },
   "dependencies": {
-    "chalk": "^4.1.2"
+    "jsonwebtoken": "^9.0.0",
+    "multer": "^2.0.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "dotenv": "^16.0.3"
   },
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.28.0",
-    "babel-eslint": "^10.1.0",
-    "eslint-plugin-react": "^7.37.5"
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

@@ -1143,7 +1143,6 @@ function initializeJusticeDashboard() {
 
   // Wire up Ask Wolfram Alpha button
   if (askWolframBtn) {
-    clearOldData();
     const saved = localStorage.getItem("justiceTrackerRows");
     if (saved) {
       trackerBody.innerHTML = saved;
