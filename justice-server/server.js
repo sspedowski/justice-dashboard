@@ -23,6 +23,12 @@ const JWT_SECRET = process.env.JWT_SECRET || "dev-jwt-secret-change-me";
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME || "admin";
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "adminpass";
 
+// Debug: Log the current credentials (don't do this in production!)
+console.log("🔍 Environment check:");
+console.log("ADMIN_USERNAME:", ADMIN_USERNAME);
+console.log("ADMIN_PASSWORD length:", ADMIN_PASSWORD ? ADMIN_PASSWORD.length : "undefined");
+console.log("JWT_SECRET length:", JWT_SECRET ? JWT_SECRET.length : "undefined");
+
 // App
 const app = express();
 app.disable("x-powered-by");
@@ -34,6 +40,20 @@ app.use(express.json({ limit: "1mb" }));
 const uploadsDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir, { recursive: true });
 app.use("/uploads", express.static(uploadsDir, { fallthrough: true }));
+
+// Serve static files from parent directory (where index.html is located)
+const publicDir = path.join(__dirname, "..");
+app.use(express.static(publicDir, { fallthrough: true }));
+
+// Serve the main application
+app.get("/", (_req, res) => {
+  res.sendFile(path.join(publicDir, "index.html"));
+});
+
+// Serve login page
+app.get("/login", (_req, res) => {
+  res.sendFile(path.join(publicDir, "login.html"));
+});
 
 // Multer setup for PDF uploads
 const upload = multer({

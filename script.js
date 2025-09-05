@@ -540,7 +540,19 @@ const DashboardAuth = {
       <!-- Header with user info and logout -->
       <header class="bg-white shadow-sm border-b">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-          <h1 class="text-xl font-bold text-gray-900">Justice Dashboard</h1>
+          <div class="flex items-center space-x-4">
+            <h1 class="text-xl font-bold text-gray-900">Justice Dashboard</h1>
+            <!-- Help Button -->
+            <button 
+              id="helpButton" 
+              class="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors duration-200 shadow-lg text-sm"
+              title="Need help? Click for quick guide"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </button>
+          </div>
           <div class="flex items-center space-x-4">
             <span class="text-sm text-gray-600">Welcome, ${this.escapeHtml(this.currentUser.fullName || this.currentUser.username)}</span>
             <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">${this.currentUser.role}</span>
@@ -661,6 +673,9 @@ const DashboardAuth = {
           this.logout();
         });
       }
+
+      // Initialize help modal
+      initializeHelpModal();
 
       // Re-run the main dashboard code
       initializeJusticeDashboard();
@@ -1685,9 +1700,52 @@ function initializeJusticeDashboard() {
   }
 } // End of initializeJusticeDashboard function
 
+// Help Modal Functionality
+function initializeHelpModal() {
+  const helpButton = document.getElementById("helpButton");
+  const helpModal = document.getElementById("helpModal");
+  const closeHelpModal = document.getElementById("closeHelpModal");
+
+  if (helpButton && helpModal && closeHelpModal) {
+    // Open help modal
+    helpButton.addEventListener("click", function() {
+      helpModal.classList.remove("hidden");
+      // Focus the modal for accessibility
+      helpModal.focus();
+    });
+
+    // Close help modal
+    closeHelpModal.addEventListener("click", function() {
+      helpModal.classList.add("hidden");
+    });
+
+    // Close modal when clicking outside of it
+    helpModal.addEventListener("click", function(event) {
+      if (event.target === helpModal) {
+        helpModal.classList.add("hidden");
+      }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape" && !helpModal.classList.contains("hidden")) {
+        helpModal.classList.add("hidden");
+      }
+    });
+
+    console.log("✅ Help modal initialized successfully");
+  } else {
+    console.warn("⚠️ Help modal elements not found");
+  }
+}
+
 // Initialize the dashboard when DOM is loaded (only once)
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initializeJusticeDashboard);
+  document.addEventListener("DOMContentLoaded", function() {
+    initializeJusticeDashboard();
+    initializeHelpModal();
+  });
 } else {
   initializeJusticeDashboard();
+  initializeHelpModal();
 }
