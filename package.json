@@ -8,7 +8,8 @@
     "dev": "node server.js",
     "test": "echo 'Tests passed'",
     "close-prs": "node scripts/close-main-prs-api.js",
-    "close-prs:dry-run": "node scripts/close-main-prs-api.js --dry-run"
+    "close-prs:dry-run": "node scripts/close-main-prs-api.js --dry-run",
+    "close-prs:demo": "node scripts/demo-close-main-prs.js"
   },
   "dependencies": {
     "jsonwebtoken": "^9.0.0",
