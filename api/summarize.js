@@ -1,5 +1,5 @@
 // Summarize endpoint for Vercel (basic version without file upload)
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 
 function requireAuth(req, res) {
   const auth = req.headers["authorization"] || "";
@@ -15,7 +15,7 @@ function requireAuth(req, res) {
   }
 }
 
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
