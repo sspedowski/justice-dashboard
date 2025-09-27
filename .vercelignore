@@ -1,0 +1,26 @@
+node_modules
+.git
+.env
+.env.local
+.env.production.local
+.env.development.local
+*.md
+*.log
+tmp/
+justice-server/uploads/
+uploads/
+pdfs/
+cypress/
+.vscode/
+.github/
+*.bat
+*.ps1
+*.sh
+test-*
+debug*
+tmp-*
+sl\ rand\ -hex\ 48
+justice-dashboard/
+web/
+build/
+scripts/

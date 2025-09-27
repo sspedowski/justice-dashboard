@@ -1,4 +1,9 @@
 {
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": ".",
+  "installCommand": "npm install",
+  "framework": null,
   "functions": {
     "api/*.js": {
       "runtime": "nodejs18.x"
@@ -10,8 +15,12 @@
       "dest": "/api/$1"
     },
     {
-      "src": "/(.*)",
+      "src": "/(.*\\.(css|js|html|pdf|png|jpg|jpeg|svg|ico|woff|woff2|ttf))",
       "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ],
   "headers": [
